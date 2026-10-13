@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="./assets/index-DAdDKHBs.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-D1ilR2gS.css">
+    <script type="module" crossorigin src="./assets/index-D1xxXKqq.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-3NHsPV7r.css">
   </head>
   <body>
     <main class="wrap">
@@ -47,6 +47,7 @@
         <div class="hero-body">
           <div class="hero-eyebrow">right now</div>
           <h2 class="hero-title" id="heroTitle"></h2>
+          <p class="step-status" id="stepStatus" hidden></p>
 
           <div class="steps" id="stepsPanel" hidden>
             <ul class="step-list" id="stepList"></ul>
@@ -59,8 +60,22 @@
                 aria-label="New step"
                 autocomplete="off"
               />
+              <input
+                type="number"
+                id="stepMinutesInput"
+                class="step-minutes-input"
+                min="1"
+                max="180"
+                step="1"
+                placeholder="min"
+                aria-label="Minutes for this step (optional)"
+              />
               <button type="submit" class="btn-ghost">Add step</button>
             </form>
+            <div class="step-run" id="stepRunArea" hidden>
+              <button type="button" class="btn-ghost" id="startStepsBtn">Start step timers</button>
+              <p class="step-skip-note" id="stepSkipNote" hidden></p>
+            </div>
           </div>
 
           <div class="all-done" id="allDonePrompt" hidden>
@@ -77,13 +92,14 @@
 
           <div class="controls">
             <button type="button" class="btn-primary" id="startPauseBtn">Start focus</button>
+            <button type="button" class="btn-ghost" id="skipStepBtn" hidden>Skip step</button>
             <button type="button" class="btn-ghost warn" id="stopBtn" hidden>Stop</button>
           </div>
 
           <p class="away-live" id="awayLive" aria-live="polite"></p>
 
           <div class="result" id="resultCard" hidden>
-            <div class="result-head">Round complete</div>
+            <div class="result-head" id="resultHead">Round complete</div>
             <div class="result-body" id="resultText"></div>
           </div>
 
