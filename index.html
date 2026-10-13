@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RightNow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/index-DAdDKHBs.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D1ilR2gS.css">
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="top">
+        <h1>RightNow</h1>
+        <span class="tag">one task, made visible</span>
+      </header>
+
+      <form class="capture" id="captureForm">
+        <input
+          type="text"
+          id="captureInput"
+          placeholder="What needs doing? Type it and press Enter."
+          maxlength="140"
+          aria-label="New task"
+          autocomplete="off"
+        />
+        <button type="submit">Add</button>
+      </form>
+
+      <section class="hero" aria-label="Current focus">
+        <div class="ringwrap">
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="ring-track" cx="100" cy="100" r="88"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="88"></circle>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-time" id="ringTime" role="timer">25:00</div>
+            <div class="ring-label" id="ringState">ready</div>
+          </div>
+        </div>
+
+        <div class="hero-body">
+          <div class="hero-eyebrow">right now</div>
+          <h2 class="hero-title" id="heroTitle"></h2>
+
+          <div class="steps" id="stepsPanel" hidden>
+            <ul class="step-list" id="stepList"></ul>
+            <form class="step-add" id="stepForm">
+              <input
+                type="text"
+                id="stepInput"
+                placeholder="Add a small step"
+                maxlength="80"
+                aria-label="New step"
+                autocomplete="off"
+              />
+              <button type="submit" class="btn-ghost">Add step</button>
+            </form>
+          </div>
+
+          <div class="all-done" id="allDonePrompt" hidden>
+            <span>All steps done. Finish the task?</span>
+            <button type="button" class="btn-ghost" id="allDoneBtn">Mark task done</button>
+          </div>
+
+          <div class="controls" id="presetRow" role="group" aria-label="Timer length">
+            <button type="button" class="pill" data-minutes="1">1 min</button>
+            <button type="button" class="pill" data-minutes="5">5 min</button>
+            <button type="button" class="pill" data-minutes="25">25 min</button>
+            <button type="button" class="pill" data-minutes="45">45 min</button>
+          </div>
+
+          <div class="controls">
+            <button type="button" class="btn-primary" id="startPauseBtn">Start focus</button>
+            <button type="button" class="btn-ghost warn" id="stopBtn" hidden>Stop</button>
+          </div>
+
+          <p class="away-live" id="awayLive" aria-live="polite"></p>
+
+          <div class="result" id="resultCard" hidden>
+            <div class="result-head">Round complete</div>
+            <div class="result-body" id="resultText"></div>
+          </div>
+
+          <div class="task-actions" id="taskActions" hidden>
+            <button type="button" class="btn-text" id="stepsToggle" aria-controls="stepsPanel">
+              Break into steps
+            </button>
+            <button type="button" class="btn-text" id="doneBtn">Mark done</button>
+            <button type="button" class="btn-text" id="skipBtn">Send to back</button>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="queueHeading">
+        <div class="section-head">
+          <h2 id="queueHeading">Up next</h2>
+          <span class="count" id="queueCount"></span>
+        </div>
+        <ul class="queue" id="queue"></ul>
+        <p class="empty-note" id="queueEmpty">Nothing else queued.</p>
+      </section>
+
+      <p class="tip">
+        RightNow notices when you switch tabs or apps during a focus round. Your tasks are saved in
+        this browser only.
+      </p>
+      <p class="storage-warning" id="storageWarning" hidden>
+        This browser is blocking storage, so tasks will be lost when you close the page.
+      </p>
+    </main>
+
+    <div class="toast" id="toast" role="status"></div>
+
+  </body>
+</html>
